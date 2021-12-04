@@ -4,3 +4,6 @@ front-end/node_modules
 .env
 back-end/src/main/resources/application-prod.properties
 back-end/src/main/resources/application-test.properties
+.settings
+.classpath
+.project
