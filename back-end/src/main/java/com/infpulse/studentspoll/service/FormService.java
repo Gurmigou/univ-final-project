@@ -27,7 +27,6 @@ import java.util.Optional;
 
 @Service
 public class FormService {
-
 	private final PossibleAnswerRepository answerRepository;
 	private final QuestionRepository questionRepository;
 	private final FormRepository formsRepository;
@@ -85,13 +84,12 @@ public class FormService {
 
 	public List<QuestionDto> getQuestions(long formId) {
 		List<QuestionDto> questionsDto = new LinkedList<>();
-		// TODO: 19.11.2021 Uncomment
-//		List<Question> questions = questionRepository.findAllByOwnerForm(formId);
-//		for (Question question : questions) {
-//			QuestionDto questionDto = mapper.map(question, QuestionDto.class);
-//			questionDto.setPossibleAnswersDto(getPossibleAnswers(question));
-//			questionsDto.add(questionDto);
-//		}
+		List<Question> questions = questionRepository.findAllByOwnerForm(formId);
+		for (Question question : questions) {
+			QuestionDto questionDto = mapper.map(question, QuestionDto.class);
+			questionDto.setPossibleAnswersDto(getPossibleAnswers(question));
+			questionsDto.add(questionDto);
+		}
 		return questionsDto;
 	}
 
